@@ -7,3 +7,4 @@
 
 ## exercise03
 **说明：**这个项目是百度前端学院的task0003任务，这个task0003任务之前是原生实现的，没有用任何框架，类库，在做完前两个小练习后，觉得backbone很好用，于是决定用backbone重新实现这个项目。
+![图](./exercise03/images/design.png)
