@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todo</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/main.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <header>
+            <h1>Todos</h1>
+            <input type="text" id="new-todo">
+        </header>
+        <section id="main">
+            <input type="checkbox" id="toggle-all">
+            <label for="toggle-all">Mark all as complete</label>
+            <ul id="todo-list">
+                <!-- <li>
+                    <input type="checkbox" id="toggle-done">
+                    <label for="toggle-done" class="done">回家</label>
+                    <a class="destroy"></a>
+                    <input type="text" id="edit" class="editing">
+                </li>
+                <li>
+                    <input type="checkbox" id="toggle-done">
+                    <label for="toggle-done">回家</label>
+                     <a class="destroy"></a>
+                    <input type="text" id="edit" class="editing">
+                </li> -->
+            </ul>
+        </section>
+        <footer class="clearfix">
+            <div id="left" class="left">0 items left</div>
+            <div id="completed" class="complete">
+            clear 1 completed item
+            </div>
+        </footer>
+    </div>
+   <script src="../public/js/jquery-1.10.2.js"></script>
+    <script src="../public/js/underscore.js"></script>
+    <script src="../public/js/backbone.js"></script>
+    <script src="../public/js/backbone.localStorage.js"></script>
+    <script src="./static/js/main.js"></script>
+
+    <script type="text/template" id="item-template">
+    <div class="view">
+        <input type="checkbox" id="toggle-done" <%= done ? 'checked="checked"' : "" %> />
+       <label for="toggle-done"><%- title %></label>
+       <a class="destroy"></a>
+    </div>
+       
+       <input type="text" id="edit" class="editing" value='<%- title %>'>
+    </script>
+    <script type="text/template" id="stats-template">
+        <% if(done) {%>
+        <div id="completed" class="complete">clear <%= done %>completed <%= done ==1 ? 'item' : 'items' %></div>
+        <% } %>
+        <div id="left" class="left"><%= remaining %> <%= remaining ==1 ? 'item' : 'items'%> left</div> 
+    </script>
+</body>
+
+
+</html>

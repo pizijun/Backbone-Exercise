@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font: 14px/1.333 微软雅黑, tahoma, arial, 宋体, sans-serif;
+	background: #eee;
+}
+ul,ol{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix{
+	*zoom: 1;
+}
+.clearfix:after{
+	content: ".";
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+}
+.container{
+	width: 550px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 0 0 5px 5px;	 
+}
+header{
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 4px;
+}
+header input[type='text']{
+	width: 480px;
+	height: 50px;
+	outline: none;
+	font-size: 24px;
+}
+section#main{
+	display: none;
+}
+#toggle-all{
+	margin-left: 32px;
+}
+#todo-list{
+	width: 480px;
+	margin: 10px auto 0;
+}
+#todo-list li{
+	border-bottom: 1px solid #CCCCCC;
+	position: relative;
+	height: 50px;
+	line-height: 50px;
+	/*padding-left: 32px;*/
+}
+#todo-list li .done{
+	text-decoration: line-through;
+}
+#todo-list li:last-child{
+	border-bottom: none;
+}
+#todo-list li:hover .destroy{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url("../images/destroy.png") no-repeat;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	margin-top: -10px;
+	cursor: pointer;
+}
+.editing{
+	display: none;
+	width: 480px;
+	height: 50px;
+	outline: none;
+	font-size: 24px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -240px;
+	margin-top: -25px;
+}
+footer{
+	height: 35px;
+	line-height: 35px;
+	background: #F4FCE8;
+	margin-top: 8px;
+	border-top: 1px solid #EDEDED;
+	border-radius: 0 0 5px 5px;
+	display: none;
+
+}
+.left{
+	float: left;
+	margin-left: 30px;
+}
+.complete{
+	float: right;
+	margin-right: 30px;
+	height: 24px;
+	line-height: 24px;
+	position: relative;
+	top: 50%;
+	margin-top: -12px;
+	border-radius: 12px;
+	padding: 0 5px;
+	background: #DCE3D1;
+	/*display: none;*/
+}

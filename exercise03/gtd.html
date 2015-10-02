@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task0003</title>
+    <link rel="stylesheet" type="text/css" href="css/gtd.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <p>GTD Tools</p>
+    </header>
+    <div class="main-container">
+        <div class="left">
+            <p class="all-asign">所有任务（<span class="total-sum">0</span>）</p>
+            <p class="list-title">分类列表</p>
+            <ul class="category-list" id="category-list">
+                <li class="category-item" id="moren">
+                    <a data-pid="moren"><span class="font-icon"><i class="fa fa-fw fa-folder"></i></span>默认分类(<span class='pnum'>0</span>)</a>
+                    <ul class="item-list">
+                        <li>
+                            <a data-sid='subMoren'>
+                                <span class="font-icon"><i class="fa fa-fw fa-file-o"></i></span>默认子分类(<span class='snum'>0</span>)
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="add-class" id="add-class"><i class="fa fa-plus fa-fw fa-lg"></i>新增分类</p>
+        </div>
+        <div class="med">
+            <dl class="tab">
+                <dt class="tab-trigger" id="tab-trigger">
+                    <a href="#tab-content-all" class="trigger-item trigger-now">所有</a>
+                    <a href="#tab-content-false" class="trigger-item ">未完成</a>
+                    <a href="#tab-content-true" class="trigger-item ">已完成</a>
+                </dt>
+                <dd id="tab-content-all" class="tab-item tab-item-now">
+                </dd>
+                <p class="add-task"><i class="fa fa-plus fa-fw fa-lg"></i>新增任务</p>
+            </dl>
+        </div>
+        <div class="right">
+            <div class="editing-area">
+                <div>
+                    <label for="title-input">任务标题：</label>
+                    <input type="text" id="title-input">
+                </div>
+                <div>
+                    <label for="date-input">任务日期：</label>
+                    <input type="text" id="date-input">
+                </div>
+                <div>
+                    <label for="content-input">任务内容：</label>
+                    <textarea id="content-input"></textarea>
+                </div>
+                <div><a class="sure">确定</a><a class="abolish">取消</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div class="container">
+            <div class="head">新增分类<i class="fa fa-times fa-fw"></i></div>
+            <div class="content-box">
+                <div class="parent-wrap">
+                    <label for="parent-class">可选父类：</label>
+                    <select name="parent" id="parent-class" class="parent-class">
+                        <option value="nothing">无</option>
+                        <option value="moren">默认分类</option>
+                    </select>
+                </div>
+                <div class="new-wrap">
+                    <label for="new-class">新增类名：</label>
+                    <input type="text" id="new-class" class="new-class">
+                </div>
+                <div class="btn-wrap">
+                    <button type="button" id="ok" class="ok">确定</button>
+                    <button type="button" id="cancle" class="cancle">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/jquery-1.10.2.js"></script>
+    <script src="../public/js/underscore.js"></script>
+    <script src="../public/js/backbone.js"></script>
+    <script src="../public/js/backbone.localStorage.js"></script>
+    <script src="./js/gtd.js"></script>
+    <script type="text/template" id="parentCls-template">
+        <a data-pid='<%= id %>'>
+            <span class="font-icon"><i class="fa fa-fw fa-folder"></i></span>
+            <%- name %>(<span>0</span>)<span class="pdestroy destroy"><i class="fa fa-times fa-fw"></i></span>
+        </a>
+        <ul class="item-list"></ul>
+    </script>
+    <script type="text/template" id="select-template">
+        <option value='<%= id %>'>
+            <%- name %>
+        </option>
+    </script>
+    <script type="text/template" id="subCls-template">
+        <a data-sid='<%= id %>'>
+            <span class="font-icon"><i class="fa fa-fw fa-file-o"></i></span>
+            <%- name %>(<span>0</span>)<span class="sdestroy destroy"><i class="fa fa-times fa-fw"></i></span>
+        </a>
+        <!-- (<%= children==0 ? '0' : children %>) -->
+    </script>
+    <script type="text/template" id="tasklist-template">
+        <a data-tid='<%= id %>' class='choosen' <%= done ? 'id="done"' : ''%>><span <%= done ? '' : 'class="hidden"'%> ><i class="fa fa-check-square"></i></span><%- title %><span class="destroy tdestroy"><i class="fa fa-times fa-fw"></i></span></a>
+    </script>
+    <script type="text/template" id="taskdetail-template">
+        <div class="title">
+            <h1><%- title %></h1>
+            <span class="confirm"><i class="fa fa-fw fa-2x fa-check-circle-o"></i></span>
+            <span class="edit"><i class="fa fa-fw fa-2x fa-pencil-square-o"></i></span>
+        </div>
+        <div class="date">任务日期：<span><%- date %></span></div>
+        <div class="content">
+            <p><%- content %></p>
+        </div>
+    </script>
+</body>
+
+</html>

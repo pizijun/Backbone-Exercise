@@ -1,0 +1,9 @@
+#contact-list td{
+	position: relative;
+}
+#contact-list  td input[type="text"]{
+	position: absolute;
+	left: 6px;
+	width: 130px;
+	display: none;
+}
